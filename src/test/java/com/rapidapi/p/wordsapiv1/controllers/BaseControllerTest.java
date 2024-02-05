@@ -8,7 +8,6 @@ package com.rapidapi.p.wordsapiv1.controllers;
 
 import com.rapidapi.p.wordsapiv1.Environment;
 import com.rapidapi.p.wordsapiv1.WordsAPIClient;
-import com.rapidapi.p.wordsapiv1.authentication.CustomHeaderAuthenticationModel;
 import com.rapidapi.p.wordsapiv1.testing.HttpCallbackCatcher;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -66,9 +65,7 @@ public class BaseControllerTest {
         final String xRapidAPIKey = System.getenv("WORDS_API_LIB_X_RAPID_API_KEY");
 
         if (xRapidAPIKey != null) {
-            builder.customHeaderAuthenticationCredentials(new CustomHeaderAuthenticationModel
-                    .Builder(xRapidAPIKey)
-                    .build());
+            builder.customHeaderAuthenticationCredentials(xRapidAPIKey);
         }
         if (environment != null) {
             builder.environment(Environment.fromString(environment));

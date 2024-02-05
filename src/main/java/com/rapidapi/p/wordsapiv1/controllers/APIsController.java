@@ -74,8 +74,7 @@ public final class APIsController extends BaseController {
                         .templateParam(param -> param.key("word").value(word)
                                 .shouldEncode(true))
                         .headerParam(param -> param.key("accept").value("application/json"))
-                        .withAuth(auth -> auth
-                                .add("RapidAPI-Key"))
+                        .authenticationKey(BaseController.AUTHENTICATION_KEY)
                         .httpMethod(HttpMethod.GET))
                 .responseHandler(responseHandler -> responseHandler
                         .deserializer(
@@ -124,8 +123,7 @@ public final class APIsController extends BaseController {
                         .templateParam(param -> param.key("word").value(word)
                                 .shouldEncode(true))
                         .headerParam(param -> param.key("accept").value("application/json"))
-                        .withAuth(auth -> auth
-                                .add("RapidAPI-Key"))
+                        .authenticationKey(BaseController.AUTHENTICATION_KEY)
                         .httpMethod(HttpMethod.GET))
                 .responseHandler(responseHandler -> responseHandler
                         .deserializer(
@@ -176,8 +174,7 @@ public final class APIsController extends BaseController {
                         .templateParam(param -> param.key("word").value(word)
                                 .shouldEncode(true))
                         .headerParam(param -> param.key("accept").value("application/json"))
-                        .withAuth(auth -> auth
-                                .add("RapidAPI-Key"))
+                        .authenticationKey(BaseController.AUTHENTICATION_KEY)
                         .httpMethod(HttpMethod.GET))
                 .responseHandler(responseHandler -> responseHandler
                         .deserializer(
@@ -232,8 +229,7 @@ public final class APIsController extends BaseController {
                         .templateParam(param -> param.key("word").value(word)
                                 .shouldEncode(true))
                         .headerParam(param -> param.key("accept").value("application/json"))
-                        .withAuth(auth -> auth
-                                .add("RapidAPI-Key"))
+                        .authenticationKey(BaseController.AUTHENTICATION_KEY)
                         .httpMethod(HttpMethod.GET))
                 .responseHandler(responseHandler -> responseHandler
                         .deserializer(
@@ -282,8 +278,7 @@ public final class APIsController extends BaseController {
                         .templateParam(param -> param.key("word").value(word)
                                 .shouldEncode(true))
                         .headerParam(param -> param.key("accept").value("application/json"))
-                        .withAuth(auth -> auth
-                                .add("RapidAPI-Key"))
+                        .authenticationKey(BaseController.AUTHENTICATION_KEY)
                         .httpMethod(HttpMethod.GET))
                 .responseHandler(responseHandler -> responseHandler
                         .deserializer(
@@ -340,8 +335,7 @@ public final class APIsController extends BaseController {
                         .templateParam(param -> param.key("word").value(word)
                                 .shouldEncode(true))
                         .headerParam(param -> param.key("accept").value("application/json"))
-                        .withAuth(auth -> auth
-                                .add("RapidAPI-Key"))
+                        .authenticationKey(BaseController.AUTHENTICATION_KEY)
                         .httpMethod(HttpMethod.GET))
                 .responseHandler(responseHandler -> responseHandler
                         .deserializer(
