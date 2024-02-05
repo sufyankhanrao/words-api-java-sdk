@@ -10,61 +10,12 @@ APIsController aPIsController = client.getAPIsController();
 
 ## Methods
 
-* [Synonyms](../../doc/controllers/ap-is.md#synonyms)
 * [Definitions](../../doc/controllers/ap-is.md#definitions)
-* [Pronunciation](../../doc/controllers/ap-is.md#pronunciation)
-* [Word](../../doc/controllers/ap-is.md#word)
 * [Examples](../../doc/controllers/ap-is.md#examples)
+* [Word](../../doc/controllers/ap-is.md#word)
+* [Pronunciation](../../doc/controllers/ap-is.md#pronunciation)
+* [Synonyms](../../doc/controllers/ap-is.md#synonyms)
 * [Frequency](../../doc/controllers/ap-is.md#frequency)
-
-
-# Synonyms
-
-Get synonyms of a word.
-
-```java
-CompletableFuture<SynonymsResponse> synonymsAsync(
-    final String word)
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `word` | `String` | Template, Required | The word to search synonyms for. |
-
-## Response Type
-
-[`SynonymsResponse`](../../doc/models/synonyms-response.md)
-
-## Example Usage
-
-```java
-String word = "lovely";
-
-aPIsController.synonymsAsync(word).thenAccept(result -> {
-    // TODO success callback handler
-    System.out.println(result);
-}).exceptionally(exception -> {
-    // TODO failure callback handler
-    exception.printStackTrace();
-    return null;
-});
-```
-
-## Example Response *(as JSON)*
-
-```json
-{
-  "word": "lovely",
-  "synonyms": [
-    "adorable",
-    "endearing",
-    "cover girl",
-    "pin-up"
-  ]
-}
-```
 
 
 # Definitions
@@ -112,6 +63,89 @@ aPIsController.definitionsAsync(word).thenAccept(result -> {
     "appealing to the emotions as well as the eye"
   ]
 }
+```
+
+
+# Examples
+
+Get examples of how the word is used.
+
+```java
+CompletableFuture<ExamplesResponse> examplesAsync(
+    final String word)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `word` | `String` | Template, Required | The word to search the examples for. |
+
+## Response Type
+
+[`ExamplesResponse`](../../doc/models/examples-response.md)
+
+## Example Usage
+
+```java
+String word = "wind";
+
+aPIsController.examplesAsync(word).thenAccept(result -> {
+    // TODO success callback handler
+    System.out.println(result);
+}).exceptionally(exception -> {
+    // TODO failure callback handler
+    exception.printStackTrace();
+    return null;
+});
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "word": "testing",
+  "examples": [
+    "there are laboratories for commercial testing",
+    "it involved testing thousands of children for smallpox",
+    "they agreed to end the testing of atomic weapons"
+  ]
+}
+```
+
+
+# Word
+
+Retrieve information about a word. Results can include definitions, part of speech, synonyms, related words, syllables, and pronunciation. This method is useful to see which relationships are attached to which definition and part of speech of a word.
+
+```java
+CompletableFuture<WordResponse> wordAsync(
+    final String word)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `word` | `String` | Template, Required | This is a template parameter that is used to provide the word, about which the information is being fetched. |
+
+## Response Type
+
+[`WordResponse`](../../doc/models/word-response.md)
+
+## Example Usage
+
+```java
+String word = "Testing";
+
+aPIsController.wordAsync(word).thenAccept(result -> {
+    // TODO success callback handler
+    System.out.println(result);
+}).exceptionally(exception -> {
+    // TODO failure callback handler
+    exception.printStackTrace();
+    return null;
+});
 ```
 
 
@@ -163,12 +197,12 @@ aPIsController.pronunciationAsync(word).thenAccept(result -> {
 ```
 
 
-# Word
+# Synonyms
 
-Retrieve information about a word. Results can include definitions, part of speech, synonyms, related words, syllables, and pronunciation. This method is useful to see which relationships are attached to which definition and part of speech of a word.
+Get synonyms of a word.
 
 ```java
-CompletableFuture<WordResponse> wordAsync(
+CompletableFuture<SynonymsResponse> synonymsAsync(
     final String word)
 ```
 
@@ -176,53 +210,18 @@ CompletableFuture<WordResponse> wordAsync(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `word` | `String` | Template, Required | This is a template parameter that is used to provide the word, about which the information is being fetched. |
+| `word` | `String` | Template, Required | The word to search synonyms for. |
 
 ## Response Type
 
-[`WordResponse`](../../doc/models/word-response.md)
+[`SynonymsResponse`](../../doc/models/synonyms-response.md)
 
 ## Example Usage
 
 ```java
-String word = "Testing";
+String word = "lovely";
 
-aPIsController.wordAsync(word).thenAccept(result -> {
-    // TODO success callback handler
-    System.out.println(result);
-}).exceptionally(exception -> {
-    // TODO failure callback handler
-    exception.printStackTrace();
-    return null;
-});
-```
-
-
-# Examples
-
-Get examples of how the word is used.
-
-```java
-CompletableFuture<ExamplesResponse> examplesAsync(
-    final String word)
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `word` | `String` | Template, Required | The word to search the examples for. |
-
-## Response Type
-
-[`ExamplesResponse`](../../doc/models/examples-response.md)
-
-## Example Usage
-
-```java
-String word = "wind";
-
-aPIsController.examplesAsync(word).thenAccept(result -> {
+aPIsController.synonymsAsync(word).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
@@ -236,11 +235,12 @@ aPIsController.examplesAsync(word).thenAccept(result -> {
 
 ```json
 {
-  "word": "testing",
-  "examples": [
-    "there are laboratories for commercial testing",
-    "it involved testing thousands of children for smallpox",
-    "they agreed to end the testing of atomic weapons"
+  "word": "lovely",
+  "synonyms": [
+    "adorable",
+    "endearing",
+    "cover girl",
+    "pin-up"
   ]
 }
 ```
